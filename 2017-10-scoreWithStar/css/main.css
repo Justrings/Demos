@@ -1,0 +1,21 @@
+.rating ,.rating2{
+	border: 2px solid skyblue;
+}
+.rating::after, .rating2::after{
+	content: '';
+	display: block;
+	visibility: none;
+	overflow: hidden;
+	clear: both;
+
+}
+.ratingItem {
+	float: left;
+	width: 32px;
+	height: 32px;
+	list-style: none;
+	background: url(../img/star-empty.png) no-repeat;
+}
+.marked {
+	background: url(../img/star-full.png) no-repeat;
+}
