@@ -16,6 +16,9 @@
 	list-style: none;
 	background: url(../img/star-empty.png) no-repeat;
 }
+.halfMarked {
+	background: url(../img/star-half.png) no-repeat;
+}
 .marked {
 	background: url(../img/star-full.png) no-repeat;
 }
