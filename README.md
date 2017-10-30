@@ -1,3 +1,3 @@
 ##Demos I have finished. maybe...
 ### list to do
-- [ ] [星级评分](https://github.com/coliver777/Demos/2017-10-scoreWithStar/index.html)
+- [ ] [星级评分](https://coliver777.github.io/Demos/2017-10-scoreWithStar/)
