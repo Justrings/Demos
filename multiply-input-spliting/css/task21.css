@@ -1,0 +1,6 @@
+#boxone>div, #boxtwo>div{
+	display: inline-block;
+	background-color: purple;
+	color:white;
+	margin:5px;
+}

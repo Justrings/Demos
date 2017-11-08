@@ -1,0 +1,15 @@
+.container > div{
+	display:inline-block;
+	margin:5px;
+	color:olive;
+	background-color: pink;
+}
+div span{
+
+	background-color: red;
+}
+.container{
+	height:300px;
+	width:255px;
+
+}

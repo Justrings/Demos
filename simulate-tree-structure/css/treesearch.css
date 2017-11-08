@@ -1,0 +1,38 @@
+*{
+    margin:0px;
+    padding:0px;
+}
+div{
+    border: 2px solid lightgreen;
+    display: flex;
+    flex-direction: wrap;
+    align-items: center;
+    justify-content: space-around;
+    padding-top: 32px;
+    padding-bottom: 32px;
+    padding-left:20px;
+    padding-right: 20px;
+   margin:5px;
+    background-color: white;
+}
+
+#divroot{
+   
+	margin:50px 30px;
+	
+}
+div#button{
+	width:410px;
+	margin:15px auto;
+	border:6px double firebrick;
+}
+div>button{
+    margin:5px;
+    padding:3px 5px;
+    border:2px solid thistle;
+    background-color:wheat;
+}
+/* div>div>div>div{
+	height: 100px;
+	width:65px;
+} */

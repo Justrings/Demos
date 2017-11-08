@@ -1,0 +1,242 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>京东轮播图</title>
+<link rel="stylesheet" href="css/reset.css">
+	<style>
+	.container{
+		position: relative;
+		height: 340px;
+		width: 790px;
+	}
+	.banner{
+		position: absolute;
+	}
+	.banner_icon{
+		position: absolute;
+		left: 50%;
+		bottom: 0px;
+		z-index: 1;
+		margin-bottom: 10px;
+		padding: 10px;
+		border-radius: 15px/50%;
+		background-color: white;
+			
+	}
+	.banner_list{
+		position: absolute;
+		opacity: 0;
+		transition: opacity 1s ease;
+	}
+	.banner_icon_list{
+		float: left;
+		width:12px;
+		height: 12px;
+		border-radius: 100%;
+		background-color: black;
+		margin: 0 5px;
+	}
+	.active{
+		z-index: 1;
+		opacity: 1;
+	}
+	.active_icon{
+		background-color: red;
+	}
+	.banner_button_left{
+		position: absolute;
+		z-index: 3;
+		left: 0px;
+		top: 50%;
+		margin-top: -50px;
+		background-color: rgba(20%,20%,20%,0.2);
+		border-width: 50px 50px 50px 0;
+		border-style: solid;
+		border-color: transparent;
+		border-right-color: rgba(80%,80%,80%,0.3);
+
+	}
+	.banner_button_right{
+		position: absolute;
+		z-index: 3;
+		right: 0px;
+		top: 50%;
+		margin-top: -50px;
+		background-color: rgba(20%,20%,20%,0.2);
+		border-width: 50px 0px 50px 50px;
+		border-style: solid;
+		border-color: transparent;
+		border-left-color: rgba(80%,80%,80%,0.3);
+	}
+	.banner_button_left:hover,.banner_button_right:hover{
+		border-right-color: rgba(80%,80%,80%,0.8);
+		border-left-color: rgba(80%,80%,80%,0.8);
+		background-color: rgba(20%,20%,20%,0.8);
+	}
+.banner_button{
+	display: none;
+}
+</style>
+</head>
+<body>
+	<div class="container">
+		<ul class= "banner">
+			<li class="banner_list active"><a href="#"><img src="images/jdimg/a1.jpg" alt=""></a></li>
+			<li class="banner_list"><a href="#"><img src="images/jdimg/a2.jpg" alt=""></a></li>
+			<li class="banner_list"><a href="#"><img src="images/jdimg/a3.jpg" alt=""></a></li>
+			<li class="banner_list"><a href="#"><img src="images/jdimg/a4.jpg" alt=""></a></li>
+			<li class="banner_list"><a href="#"><img src="images/jdimg/a5.jpg" alt=""></a></li>
+			<li class="banner_list"><a href="#"><img src="images/jdimg/a6.jpg" alt=""></a></li>
+			<li class="banner_list"><a href="#"><img src="images/jdimg/a7.jpg" alt=""></a></li>
+		</ul>
+		<ul class="banner_icon" style="margin-left: -87px">
+			<li class="banner_icon_list active_icon"></li>
+			<li class="banner_icon_list"></li>
+			<li class="banner_icon_list"></li>
+			<li class="banner_icon_list"></li>
+			<li class="banner_icon_list"></li>
+			<li class="banner_icon_list"></li>
+			<li class="banner_icon_list"></li>
+		</ul>
+		<div class="banner_button_left banner_control banner_button"></div>
+		<div class="banner_button_right banner_control banner_button"></div>
+
+	</div>
+	
+</body>
+<script>
+
+function addHandler(element, type, fun){
+	if(element.addEventListener){
+		element.addEventListener(type, fun, false);
+	}else if(element.attachEvent){
+		element.attachEvent("on"+ type, fun);
+	}else{
+		element["on"+ type] = fun;
+	}
+}
+function removeHandler(element, type, fun){
+	if(element.removeEventListener){
+		element.removeEventListener(type, fun, false)
+	}else if(element.detachEvent){
+		element.detachEvent("on"+type, fun);
+	}else{
+		element["on"+type] = null;
+	}
+}	
+function getEvent(event){
+	return event? event:window.event;
+}
+
+function getTarget(event){
+	return event.target||event.srcElement;
+}
+function stopPropagation(event){
+	if(event.stopPropagation){
+		event.stopPropagation();
+	}else{
+		event.cancelBubble = true;
+	}
+
+}
+function preventDefault(event){
+	if(event.preventDefault){
+		event.preventDefault();
+	}else{
+		event.returnValue = false;
+	}
+}
+/*===============轮播图=================*/
+	var $ = function(id){
+		return document.getElementsByClassName(id);
+	};
+	var dom = $("banner_list"),domIcon = $("banner_icon_list") ,banner = $("banner")[0], banner_control = $("banner_control"),container=$("container")[0],arr ,timer;
+	var mainBanner = function(){
+		var getActiveId = function(){
+			for(var i=0; i< dom.length;i++){
+				if(dom[i].classList.contains("active"))
+				return i;
+			}
+		}
+		var getNextId = function(activeListId){
+			if(activeListId>=dom.length -1){
+				return 0;
+			}else{
+				return activeListId+1;
+			}
+		}
+		var getPre  = function(activeListId){
+			if(activeListId===0){
+				return dom.length -1;
+			}else{
+				return activeListId-1;
+			}			
+		}
+		var bannerTurn = function(arr){		
+			dom[arr[0]].classList.remove('active');
+			dom[arr[1]].classList.add('active');		
+		}
+		var bannerListTurn = function(arr){
+			domIcon[arr[0]].classList.remove('active_icon');
+			domIcon[arr[1]].classList.add('active_icon');
+		}	
+		var bannerControl = function(){
+			banner_control[0].classList.toggle("banner_button");
+			banner_control[1].classList.toggle("banner_button");
+		}
+		var main = function(){
+			timer = setTimeout(function(){
+				activeListId = getActiveId()
+				arr=[activeListId,getNextId(activeListId)]
+				bannerTurn(arr);
+				bannerListTurn(arr);
+				main();		
+			},3000)
+		}
+	
+		addHandler(container,"mouseover",function(){
+			clearTimeout(timer);
+			bannerControl();			
+		});
+		addHandler(container,"mouseout",function(){
+			main();
+			bannerControl();	
+		})
+		for(var i=0,len=domIcon.length;i<len;i++){
+			addHandler(domIcon[i],"mouseover",function(event,i){
+				return function(){	
+					var e = getEvent(event);
+					stopPropagation(e);			
+					clearTimeout(timer);
+					activeListId = getActiveId();
+					arr=[activeListId,i];
+					bannerTurn(arr);
+					bannerListTurn(arr);					
+				}
+			}(event,i));
+			addHandler(domIcon[i],"mouseout",function(event,i){
+				return function(){
+					var e = getEvent(event);
+					stopPropagation(e);
+					main();
+				}
+			}(event,i));
+
+		}	
+		addHandler($("banner_button_right")[0], "click", function(){
+				activeListId = getActiveId()
+				arr=[activeListId,getNextId(activeListId)]
+				bannerTurn(arr);
+				bannerListTurn(arr);			
+		})
+		addHandler($("banner_button_left")[0], "click", function(){
+				activeListId = getActiveId()
+				arr=[activeListId,getPre(activeListId)]
+				bannerTurn(arr);
+				bannerListTurn(arr);			
+		})
+		main();
+	}();
+</script>
+</html>

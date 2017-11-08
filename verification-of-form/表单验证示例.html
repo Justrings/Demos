@@ -1,0 +1,208 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>task30</title>
+<style>
+/* -----------表格格式设置--------------*/
+td:first-child{
+	padding-right:20px;
+	text-align: right;
+}
+table{
+	border-spacing: 10px 5px;
+	margin: 0 auto;	
+}
+input{
+	line-height: 20px;
+	border-radius: 5px;
+	width:200px;
+}
+span{
+	color:gray;
+	font-size: 0.9em;
+	line-height: 50px;
+}
+button{
+	padding:5px 10px;
+	background-color: skyblue;
+	font-size:1.2em;
+	border-radius: 7px;
+}
+</style>
+</head>
+<body>
+	<form action="" method="get" accept-charset="utf-8">
+	<table>
+		<tr>
+			<td>名称</td>
+			<td><input type="text" class="input_name"></td>
+		</tr>
+		<tr>
+			<td></td>
+			<td><span class="hidden"></span></td>
+		</tr>
+		<tr>
+			<td>密码</td>
+			<td><input type="text" class="input_password"></td>
+		</tr>
+		<tr>
+			<td></td>
+			<td><span class="hidden"></span></td>
+		</tr>
+		<tr>
+			<td>密码确认</td>
+			<td><input type="text" class="password_confirm"></td>
+		</tr>
+		<tr>
+			<td></td>
+			<td><span class="hidden"></span></td>
+		</tr>
+		<tr>
+			<td>邮箱</td>
+			<td><input type="text" class="input_email"></td>
+		</tr>
+		<tr>
+			<td></td>
+			<td><span class="hidden"></span></td>
+		</tr>
+		<tr>
+			<td></td>
+			<td></td>
+			<td><button>提交</button></td>
+		</tr>
+	</table>	
+	</form>
+<script>
+/*---------输入信息配置-------- */
+	var info=[{
+		type: "name",
+		dom: 0,
+		tips: "名字不能为空",
+		rightInfo: "符合命名规则",
+		wrongInfo: "名字小于4个字符长度"
+	},{
+		type: "password",
+		dom: 1,
+		tips: "密码大于7位数字母下划线",
+		rightInfo: "密码符合规则",
+		wrongInfo: "密码不符合规则"
+	},{
+		type:"confirm",
+		dom:2,
+		tips:"请重复填写密码",
+		rightInfo:"重新填写正确",
+		wrongInfo:"密码为空或两次密码填写不一致"
+	},{
+		type:"email",
+		dom:3,
+		tips:"请填写邮箱号码",
+		rightInfo:"邮箱格式正确",
+		wrongInfo:"邮箱格式错误!"
+	}];
+/*-------验证策略--------*/
+	var strategy={
+		name:function(text_input){
+			pattern=/[^\x00-\xff]/g;
+			var len="";
+			len=text_input.replace(pattern,"11");
+			len=len.length;
+			if(len<4||len>16){
+				return false;//alert("字符数不在范围!");
+			}else{
+				return true;//alert("验证成功!");
+				}
+			},
+		password:function(text_input){
+			if((/[a-zA-Z0-9_]{8,}/g).test(text_input)){
+				return true;
+			}else{
+				return false;
+			}
+		},
+		confirm:function(text_input){
+			if(text_input!==""&&text_input===document.getElementsByClassName("input_password")[0].value){
+				return true;
+			}else{
+				return false;
+			}
+		},
+		email:function(text_input){
+			var pattern=/^([a-zA-Z0-9]+[_|\_|\.]?)*[a-zA-Z0-9]+@([a-zA-Z0-9]+[_|\_|\.]?)*[a-zA-Z0-9]+\.[a-zA-Z]{2,3}$/;
+			if(!pattern.test(text_input)){
+				return false;
+			}else{
+				return true;
+			}
+		}
+	}
+/*--------改变输入框及字体颜色----------*/
+var addColor=function(i,flag,input,span){
+	if(!flag){//没有通过验证
+		span[i].innerHTML=info[i]["wrongInfo"];
+		span[i].style.color="red";
+		input[i].style.borderColor="red";
+	}else{//通过验证
+		span[i].innerHTML=info[i]["rightInfo"];
+		span[i].style.color="lightgreen";
+		input[i].style.borderColor="lightgreen";
+	}
+}
+
+function addHandler(element, type, fun){//通用事件绑定函数
+	if(element.addEventListener){
+		element.addEventListener(type, fun, false);
+	}else if(element.attachEvent){
+		element.attachEvent("on"+ type, fun);
+	}else{
+		element["on"+ type] = fun;
+	}
+	}
+
+var arr=[0,0,0,0];//判断是否全部正确提交
+
+function render(){//事件渲染
+	var input=document.getElementsByTagName("input");
+	var span=document.getElementsByTagName("span");
+		for(var i=0 ,len=info.length;i<len;i++){
+		addHandler(input[i],"click",function(i){
+				return function(){
+				span[i].innerHTML=info[i]["tips"];
+				span[i].style.color="gray";
+				span[i].className="show";
+			}}(i))	
+		addHandler(input[i],"blur",function(i){
+				return function(){
+				var flag=strategy[info[i]["type"]](input[i].value);
+					arr[i]=Number(flag);
+				addColor(i,flag,input,span);
+			}}(i))
+/*			input[i].onclick=function(i){
+				return function(){
+				span[i].innerHTML=info[i]["tips"];
+				span[i].style.color="gray";
+				span[i].className="show";
+			}}(i)
+			input[i].onblur=function(i){
+				return function(){
+				var flag=strategy[info[i]["type"]](input[i].value);
+				addColor(i,flag,input,span);
+			}}(i)*/
+		}
+}
+//form表单提交判断
+var button=document.getElementsByTagName("button")[0];
+addHandler(button,"click",function(){
+	var s=arr.reduce(function(acc,cur){
+		return acc+cur;
+	})
+	if(s==4){
+		alert("提交成功!");
+	}else{
+		alert("提交失败!!!,请仔细修改.");
+	}
+}) 		
+render();				
+</script>
+</body>
+</html>
