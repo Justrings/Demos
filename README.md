@@ -6,5 +6,5 @@
 - [x] [星级评分](https://coliver777.github.io/Demos/score-with-star/solution.html)
 - [x] [对输入进行分分类](https://coliver777.github.io/Demos/multiply-input-spliting/multiply-input-splitting.html)
 - [x] [简易轮播图](https://coliver777.github.io/Demos/a-simple-banner/简易轮播图.html)
-- [x] [一个响应式页面demo](https://coliver777.github.io/Demos/a-simple-banner/简易轮播图.html)
+- [x] [一个响应式页面demo](https://coliver777.github.io/Demos/responsive-web-demo/)
 - [x] [一个基于jQuery的to-do-list](https://coliver777.github.io/Demos/jquery-to-do-list/)
