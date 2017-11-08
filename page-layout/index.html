@@ -1,0 +1,215 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>各种方式实现三栏式布局</title>
+</head>
+<body>
+	<style type="text/css">
+		body {
+			background-color: #d1f2ff;
+		}
+		h2 {
+			text-align: center;
+			font-weight: 500;
+		}
+	</style>
+	<h2>各种方式实现三栏式布局</h2>
+	<style type="text/css">
+		section {
+			margin-bottom: 5px;
+		}
+		.main {
+			background-color: #5f5;
+			text-align: center;
+		}
+		.left, .right {
+			background-color: #8ee;
+		}
+		.float-layout {
+			overflow: hidden;
+			text-align: center;
+		}
+		.float-layout .main {
+			margin: 0 100px;
+			padding-bottom: 1000px;
+			margin-bottom: -1000px;
+		}
+		.float-layout .left {
+			float: left;
+			width: 100px;
+			height: 100px;
+		}
+		.float-layout .right {
+			float: right;
+			width: 100px;
+			height: 100px;
+		}
+	</style>
+	<section class="float-layout">
+		<div class="left"></div>
+		<div class="right"></div>
+		<div class="main">float-layout</div>
+	</section>
+	<style type="text/css">
+		.position-layout {
+			position: relative;
+		}
+		.position-layout .main {
+			height: 100px;
+			margin: 0 100px;
+		}
+		.position-layout .left {
+			position: absolute;
+			left: 0;
+			top: 0;
+			width: 100px;
+			height: 100px;
+		} 
+		.position-layout .right {
+			position: absolute;
+			right: 0;
+			top: 0;
+			width: 100px;
+			height: 100px;
+		}
+	</style>
+	<section class="position-layout">
+		<div class="left"></div>
+		<div class="main">position-layout</div>
+		<div class="right"></div>
+	</section>
+	<style type="text/css">
+		.table-layout div{
+			display: table-cell;
+		}
+		.table-layout .main {
+			width: 100%;
+		}
+		.table-layout .left ,.table-layout .right{
+			min-width: 100px;
+			height: 100px;
+		}
+	</style>
+	<section class="table-layout">
+		<div class="left"></div>
+		<div class="main">table-layout</div>
+		<div class="right"></div>
+	</section>
+	<style type="text/css">
+		.flex-layout {
+			display: flex;
+		}
+		.flex-layout div {
+			height: 100px;
+		}
+		.flex-layout .left {
+			flex: 0 0 100px;
+		}
+		.flex-layout .main {
+			flex: 0 1 100%;
+		}
+		.flex-layout .right {
+			flex: 0 0 100px;
+		}
+	</style>
+	<section class="flex-layout">
+		<div class="left"></div>
+		<div class="main">flex-layout</div>
+		<div class="right"></div>
+	</section>
+	<style type="text/css">
+		.grid-layout {
+			display: grid;
+			grid-template-columns: 100px auto 100px;
+			grid-template-rows: 100px;
+		}
+		.grid-layout .left {
+			grid-column: 1;
+		} 
+		.grid-layout .main {
+			grid-column: 2;
+		}
+		.grid-layout .right {
+			grid-column: 3;
+		}
+	</style>
+	<section class="grid-layout">
+		<div class="left"></div>
+		<div class="main">grid-layout</div>
+		<div class="right"></div>
+	</section>
+	<style type="text/css">
+		.shengbei {
+			position: relative;
+			overflow: hidden;
+			height: 100px;
+			padding: 0 100px;
+		}
+		.shengbei div {
+			height: 100px;
+		}
+		.shengbei .main, 
+		.shengbei .left, 
+		.shengbei .right {
+			float: left;
+			position: relative;
+			padding-bottom: 1000px;
+			margin-bottom: -1000px;
+		}
+		.shengbei .main {
+			width: 100%;
+		}
+		.shengbei .left {
+			width: 100px;
+			margin-left: -100px;
+			left: -100%;
+		}
+		.shengbei .right {
+			width: 100px;
+			margin-left: -100px;
+			left: 100px;
+		}
+	</style>
+	<section class="shengbei">
+		<div class="main">shengbei</div>
+		<div class="left"></div>
+		<div class="right"></div>
+	</section>
+	<style type="text/css">
+		.shengbei-gai {
+			height: 100px;
+		}
+		.shengbei-gai div {
+			height: 100px;
+		}
+		.shengbei-gai .wrap {
+			width: 100%;
+		}
+		
+		.shengbei-gai .wrap, 
+		.shengbei-gai .left, 
+		.shengbei-gai .right {
+			float: left;
+		}
+		.shengbei-gai .main {
+			margin: 0 100px;
+		}
+		.shengbei-gai .left {
+			width: 100px;
+			margin-left: -100%;
+		}
+		.shengbei-gai .right {
+			width: 100px;
+			margin-left: -100px;
+		}
+	</style>
+	<section class="shengbei-gai">
+		<div class="wrap">
+			<div class="main">shengbei-gai</div>
+		</div>
+		<div class="left"></div>
+		<div class="right"></div>
+	</section>
+</body>
+</html>

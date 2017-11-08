@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+	<meta charset="UTF-8">
+	<title>to do list</title>
+	<link rel="stylesheet" href="./css/normalize.css"> 
+	<link rel="stylesheet" href="./css/jquery.datetimepicker.min.css">
+	<link rel="stylesheet" href="./css/base.css">
+</head>
+<body>
+		<div class="container">
+		<h1>to do list</h1>
+		<div class="task_receive">
+			<div class="tr_wrap">
+				<input type="text" id="tr_input" name="taskInput" value="记得复习">	
+			</div>
+			<input type="button" id="tr_submit" name="submit" value="submit">
+		</div>
+		<div class="task_list">
+		</div>
+		<div class="mask hidden"></div>
+		<div class="task_item_detail hidden">
+			<input type="text" name="" id="item_title">
+			<div class="describe">
+				<textarea name="item_desc" id="item_desc" cols="30" rows="8"></textarea></div>
+			<div class="remind">
+				<input type="text" name="" id="item_remind">
+				<label for="clock_on" class='switch_label'>
+    				<input type="checkbox" id="clock_on">
+    				<span>定时提醒</span>
+				</label>
+				<div>
+					<button type="button" class="confirm">保存</button>
+				</div>
+			</div>
+			<div class="task_item_closed"></div>
+		</div>
+		<div class="confirm_pop hidden">
+			<h3 class="confirm_pop_msg">立刻删除该选项</h3>
+			<span class="confirm_pop_false">取消</span>
+			<span class="confirm_pop_true">确定</span>
+		</div>
+	</div>
+<script src="https://cdn.bootcss.com/jquery/3.2.1/jquery.min.js"></script>
+<script src="./js/jquery.datetimepicker.full.min.js"></script>
+<script src="./js/store.min.js"></script>
+<script src="js/base.js"></script>
+</body>
+</html>

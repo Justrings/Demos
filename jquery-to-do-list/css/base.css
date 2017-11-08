@@ -1,0 +1,338 @@
+ body {
+     background-color: #eee;
+ }
+
+ input[type="text"] {
+     outline: 0;
+ }
+
+ .container {
+     position: relative;
+     min-width: 375px;
+     max-width: 900px;
+     min-height: 600px;
+     margin: 0 auto;
+     overflow: hidden;
+     background-color: #607D8B;
+ }
+
+ .container>h1 {
+     width: 100%;
+     text-align: center;
+     text-transform: capitalize;
+ }
+
+ .task_receive {
+     position: relative;
+     margin: 4px 15px;
+ }
+
+ .tr_wrap {
+     margin-right: 100px;
+ }
+
+ #tr_input {
+     width: 100%;
+     height: 30px;
+     padding-left: 8px;
+     background-color: #f7f7f7;
+     border: none;
+ }
+
+ input[type="text"],
+ input[type="checkbox"],
+ #tr_submit,
+ .task_list,
+ .task_delete,
+ .task_detail,
+ .task_item_detail,
+ .task_item_closed,
+ span.alarm_msg_confirm,
+ p.alarm_msg,
+ .confirm_pop,
+ h3.confirm_pop_msg,
+ .confirm_pop_true,
+ .confirm_pop_false {
+     border-radius: 5px;
+ }
+
+ input[type="text"]:focus {
+     background-color: white;
+ }
+
+ #tr_submit {
+     position: absolute;
+     background-color: #B1C1C9;
+     right: 0;
+     top: 1px;
+     width: 70px;
+     height: 30px;
+ }
+
+ #tr_submit:hover {
+     background-color: #c0e2f8;
+ }
+
+ .task_list {
+     margin: 4px;
+     margin-left: 15px;
+     margin-right: 100px;
+     background-color: #7993a0;
+     overflow: hidden;
+ }
+
+ .task_item {
+     position: relative;
+     width: 100%;
+     margin-top: 4px;
+     margin-bottom: 4px;
+     background-color: #b1c1c9;
+     overflow: hidden;
+ }
+
+ .task_item>input[type="checkbox"]:checked::after {
+     position: absolute;
+     top: 50%;
+     left: 0;
+     content: '';
+     display: block;
+     width: 100%;
+     height: 2px;
+     background-color: #888;
+ }
+
+ .task_list>.overdue {
+     background-color: #d3d;
+ }
+
+ .task_item.done {
+     opacity: .5;
+ }
+
+ .task_item:hover {
+     background-color: #e1e7ea;
+ }
+
+ .task_delete,
+ .task_detail {
+     float: right;
+     width: 60px;
+     line-height: 26px;
+     margin: 2px;
+     text-align: center;
+ }
+
+ .task_detail:hover {
+     background-color: #c0e2f8;
+ }
+
+ .task_delete:hover {
+     background-color: #FFE2F8;
+ }
+
+ .task_item>input {
+     float: left;
+     margin: 10px;
+     margin-bottom: 0;
+ }
+
+ .task_item>label {
+     float: left;
+     line-height: 32px;
+ }
+
+ .tl_wrap {
+     display: inline-block;
+ }
+
+ .task_item_detail {
+     position: absolute;
+     top: 50%;
+     left: 50%;
+     transform: translate(-50%, -50%);
+     width: 35%;
+     min-height: 330px;
+     min-width: 300px;
+     text-align: center;
+     overflow: auto;
+     background-color: #D7E0E3;
+ }
+
+ .task_item_detail textarea {
+     width: 95%;
+     resize: none;
+     border-radius: 5px;
+     background-color: #f7f7f7;
+ }
+
+ .task_item_detail textarea:focus {
+     background-color: white;
+     outline: none;
+ }
+
+ .hidden {
+     display: none;
+ }
+
+ .mask {
+     position: absolute;
+     top: 0;
+     bottom: 0;
+     left: 0;
+     right: 0;
+     background-color: rgba(192, 192, 192, .5);
+ }
+
+ .task_item_closed {
+     position: absolute;
+     top: 0;
+     right: 0;
+     width: 20px;
+     height: 20px;
+     background-color: #0037FF;
+ }
+
+ .remind {
+     margin: 10px 15px;
+     text-align: left;
+ }
+
+ .remind>input#item_remind {
+     text-align: center;
+     height: 30px;
+ }
+
+ .remind>label.switch_label {
+     float: right;
+ }
+
+ .remind button.confirm {
+     float: right;
+     height: 30px;
+     width: 78px;
+     margin-top: 50px;
+     margin-right: -7px;
+     font-weight: bold;
+     outline: 0;
+     background-color: #F7F7F7;
+     border-radius: 5px;
+ }
+
+ .remind button.confirm:hover {
+     background-color: white;
+ }
+
+
+ input#clock_on[type='checkbox'] {
+     width: 0;
+ }
+
+ label.switch_label {
+     position: relative;
+     display: block;
+     width: 60px;
+     height: 30px;
+     border: 2px solid #d3d;
+     border-radius: 16px/50%;
+     background-color: #fff;
+     transition: border .3s ease-in;
+ }
+
+ label.switch_label:hover {
+     border-color: lightgreen;
+ }
+
+ input#clock_on[type='checkbox']:after {
+     content: '';
+     position: absolute;
+     top: 2px;
+     right: 2px;
+     display: block;
+     width: 26px;
+     height: 26px;
+     transition: all .3s ease-in-out;
+     border-radius: 50%;
+     background-color: #ddd;
+ }
+
+ input#clock_on[type='checkbox']:checked:after {
+     right: 32px;
+     background-color: #7BF263;
+ }
+
+ label.switch_label>span {
+     position: absolute;
+     top: 38px;
+     width: 120%;
+     font-weight: bold;
+     color: rgba(0, 0, 0, .5);
+     transition: color .3s ease-in;
+ }
+
+ label.switch_label>span:hover {
+     color: black;
+ }
+
+ .task_item_detail #item_title {
+     width: 85%;
+     line-height: 1em;
+     font-weight: bold;
+     text-align: left;
+     margin: .25em;
+     text-align: center;
+ }
+
+ p.alarm_msg {
+     text-align: center;
+     font-size: 1.5em;
+     margin: 3px 0 0;
+     overflow: hidden;
+     background-color: #FFEEF7;
+ }
+
+ span.alarm_msg_confirm {
+     display: inline-block;
+     margin-left: .5em;
+     cursor: pointer;
+     background-color: #F9EE55;
+ }
+
+ span.alarm_msg_confirm:hover {
+     background-color: #F4E83B;
+ }
+
+ .confirm_pop {
+     position: absolute;
+     top: 45%;
+     left: 50%;
+     transform: translate(-50%, -50%);
+     width: 300px;
+     height: 200px;
+     box-shadow: 1px 1px 1px white;
+     background-color: white;
+ }
+
+ h3.confirm_pop_msg {
+     text-align: center;
+     margin: 0;
+     padding: .5em 0;
+     background-color: #9ebfce;
+ }
+
+ .confirm_pop_true,
+ .confirm_pop_false {
+     float: left;
+     position: relative;
+     top: 35%;
+     width: 100px;
+     line-height: 50px;
+     margin: 0 25px;
+     text-align: center;
+     cursor: pointer;
+     background-color: #f7f7f7;
+ }
+
+ .confirm_pop_true {
+     background-color: #9ebfce;
+ }
+
