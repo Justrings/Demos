@@ -2,21 +2,89 @@
 <html lang="en">
 <head>
 	<meta charset="UTF-8">
-	<title>task21</title>
-	<link rel="stylesheet" href="css/task21.css">
+	<title>multiply-input-splitting</title>
+	<link rel="stylesheet" href="css/task2.css">
 </head>
 <body>
+	<style type="text/css">
+
+	body {
+		background-color: #eef;
+	}
+	div.container {
+		width: 320px;
+		margin: 15px auto;
+		border: 1px solid #eee;
+	}
+	textarea:focus, input:focus{
+    	outline: none;
+	}
+	div#boxone, div#boxtwo {
+		width: 316px;
+    	min-height: 55px;
+    	margin: 4px 0 20px;
+    	border-radius: 5px;
+    	background-color: #d0e9f1;
+	}
+	#boxone>div, #boxtwo>div{
+		display: inline-block;
+		padding: 5px 8px;
+		background-color: purple;
+		color:white;
+		margin:5px;
+	}
+	div>label {
+		display: block;
+		max-width: 300px;
+	    line-height: 24px;
+	    padding: 2px 10px;
+	    margin: 4px 0;
+	    border-radius: 5px;
+	    background-color: #f5fdff;
+	}
+	#tag {
+		border: 2px solid #999;
+		line-height: 24px;
+		width: 300px;
+		margin: 4px 0;
+		padding: 0 8px;
+		box-shadow: -1px -1px #eee;
+		border-radius: 5px;
+		background-color: #f5fdff;
+	}
+	#text {
+		min-width: 290px;
+		padding: 10px 10px;
+		margin-top: 10px;
+		border-radius: 5px;
+		background-color: #f5fdff;
+	}
+	input#bt {
+		display: block;
+		height: 32px;
+		margin: 4px 0;
+		border-radius: 5px;
+		background-color: #f5fdff;
+	}
+	label.text {
+		margin-top: 50px;
+	}
+	</style>
+	<div class="container">
 	<div>
-		<label for="tag">Tag: </label>
+		<label for="tag">请在下面输入小分类, 以逗号, 句号或空格分隔. 总分类书最多10个. <br></label>
 		<input type="text" id="tag">
 		<div id="boxone"></div>
 	</div>
 	<div>
+		<label for="text" class="text">请在下面输入小分类, 以逗号, 句号或空格分隔. </label>
 		<textarea name="text" id="text" cols="30" rows="10"></textarea>
-		<input type="button" name="bt" id="bt" value="确认兴趣">
+		<input type="button" name="bt" id="bt" value="一次输入后隔开">
 		<div id="boxtwo"></div>
 	</div>
-<script src="scripts/unit.js"></script>
-<script src="scripts/task21.js"></script>
+	</div>
+
+<script src="js/unit.js"></script>
+<script src="js/task2.js"></script>
 </body>
 </html>

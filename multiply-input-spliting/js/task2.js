@@ -9,23 +9,6 @@ function Box(item){
 		deleteEvent(item, this);
 	}
 }
-/*Box.prototype.push=function(s){
-		this.arr.push(s);
-	};
-Box.prototype.pop=function(){
-	this.arr.pop();
-};
-Box.prototype.shift=function(){
-	this.arr.shift();
-};
-Box.prototype.unshift=function(s){
-	this.arr.unshift(s);
-};
-Box.prototype.over=function(){
-		if(this.data.length>10){
-			this.data.shift();
-		}	
-};*/
 
 Box.prototype={
 	constructor: Box,
@@ -90,19 +73,18 @@ function getInput(){
 
 function textarea(){
 	var arr = getInput();
-	if(arr!==""){
+	if(arr==""){
+		alert("输入非法!");
+	}else{
 		arr.forEach(function(item, index, array){
 			textarr.arr.push(array[index]);
 		});
 		textarr.render();
-	}else{
-		alert("输入非法!");
 	}
 }
 
 function tagarea(event){
 	var event = event || window.event;
-	//var e=getEvent();
 	var str=tag.value;
 	var pattern=/,|\.|，|。|\s/g
 	if(pattern.test(str)){
@@ -117,19 +99,7 @@ function tagarea(event){
 
 		}
 		tag.value="";
-	}/*else if(event.keyCode === 13){
-		if(pattern.test(str)){
-		str=trim(str);
-		str=str.split(/,|\.|，|。|\s/).join("");
-		if(str==""){
-			alert("输入为空！");
-		}else{
-			tagarr.push(str);
-			tagarr.over();
-			tagarr.render();
-			}
-		}
-	}*/
+	}
 }
 function initial(){
 	tag.onkeyup = tagarea;
