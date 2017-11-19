@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset=utf-8>
+	<meta name=description content="Reader">
+	<meta name=viewport content="width=device-width, initial-scale=1">
+	<title>Reader</title>
+<link href="../style/style-normalize.css" rel="stylesheet"><link href="../style/style-base.css" rel="stylesheet"></head>
+<body>
+	<header class="header">
+		<div class="header-back">
+			<i class="item"></i><span class="item">返回</span>
+		</div>
+		<div class="item header-info"></div>
+	</header>
+	<div class="mask-container">
+		<div class="mask-mid"></div>
+		<div class="mask-cover" style="display: none;"></div>
+		<div class="mask-detail" style="display: none;">
+			<div class="image"><img src="" ></div>
+			<div class="chapter"></div>
+		</div>
+		<div class="mask-directory"></div>
+	</div>
+	<article class="article">
+		<ul class="article_list">
+			<li class="article_item"></li>
+		</ul>
+		
+	</article>
+	<footer class="footer">
+		<ul class="chapter-control">
+			<li class="item chapter chapter-pre">上一节</li><!--
+		--><li class="item"><i class="chapter-now">1</i>/<i class="chapter-total">300</i></li><!--
+		--><li class="item chapter chapter-next">下一节</li>
+		</ul>
+		<ul class="container">
+			<li class="footer-item directory"></li><!--
+		--><li class="footer-item fontsize"></li><!--
+		--><li class="footer-item time"></li>
+		</ul>
+		<ul class="font" style="display: none;">
+			<li class="item-font"><span>字号</span><i class="i-bigger font-item">大</i><i class="i-smaller font-item">小</i></li>
+			<li class="item-bgc"><span>背景</span><ul>
+				<li class="bg-color checked bg-color-a"></li>
+				<li class="bg-color bg-color-b"></li>
+				<li class="bg-color bg-color-c"></li>
+				<li class="bg-color bg-color-d"></li>
+				<li class="bg-color bg-color-e"></li>
+				<li class="bg-color bg-color-f"></li>
+			</ul></li>
+		</ul>		
+	</footer>
+<script src="https://cdn.bootcss.com/store.js/1.3.20/store.min.js"></script>
+<script src="https://cdn.bootcss.com/jquery/3.2.1/jquery.min.js"></script>
+<script type="text/javascript" src="../js/main.bundle.js"></script></body>
+</html>
