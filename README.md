@@ -1,5 +1,6 @@
 ###Demos
 - [x] [各种方式实现三栏式布局](https://coliver777.github.io/Demos/page-layout/)
+- [x] [水平菜单和垂直菜单](https://coliver777.github.io/Demos/pull-down-menu/)
 - [x] [表单验证示例](https://coliver777.github.io/Demos/verification-of-form/表单验证示例.html)
 - [x] [模拟树结构](https://coliver777.github.io/Demos/simulate-tree-structure/模拟树结构.html)
 - [x] [模拟树搜索](https://coliver777.github.io/Demos/simulate-tree-structure/模拟书查找.html)
@@ -7,5 +8,6 @@
 - [x] [对输入进行分分类](https://coliver777.github.io/Demos/multiply-input-spliting/multiply-input-splitting.html)
 - [x] [简易轮播图](https://coliver777.github.io/Demos/a-simple-banner/简易轮播图.html)
 - [x] [使用mockjs模拟ajax请求,用面向对象方法实现的轮播图](https://coliver777.github.io/Demos/banner-slideshow/)
-- [x] [一个响应式页面demo](https://coliver777.github.io/Demos/responsive-web-demo/)
+- [x] [一个响应式页面完全实现](https://coliver777.github.io/Demos/responsive-web-demo/)
 - [x] [一个基于jQuery使用本地存储的的to-do-list](https://coliver777.github.io/Demos/jquery-to-do-list/)
+- [x] [一个手机端的文本阅读器的实现 + webpack构建](https://coliver777.github.io/Demos/mobile-web-reader/dist/pages/)
