@@ -1,3 +1,4 @@
+import 'babel-polyfill'
 import '../node_modules/normalize.css/normalize.css'
 import '../style/sass/base.scss'
 (function(){

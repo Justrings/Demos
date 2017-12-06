@@ -1,2 +1,4 @@
-.DS_Store
+﻿.DS_Store
+#不包括node_modules目录下文件
+side-bar/
 node_modules/
